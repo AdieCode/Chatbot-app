@@ -1,0 +1,17 @@
+/* .login-card{
+    width: 890px;
+    height: 545px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: -10px 30px 50px 20px rgba(0, 0, 0, 0.30);
+} */
+
+body {
+    margin: 0;
+  }
+
+.robot-img{
+    height: 32;
+    width: 32;
+}
