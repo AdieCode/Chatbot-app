@@ -7,6 +7,7 @@ exports.createClient = void 0;
 // For more information about this file see https://dove.feathersjs.com/guides/cli/client.html
 const feathers_1 = require("@feathersjs/feathers");
 const authentication_client_1 = __importDefault(require("@feathersjs/authentication-client"));
+const telegram_bot_shared_1 = require("./services/telegram-bot/telegram-bot.shared");
 const messages_shared_1 = require("./services/messages/messages.shared");
 const users_shared_1 = require("./services/users/users.shared");
 /**
@@ -24,6 +25,7 @@ const createClient = (connection, authenticationOptions = {}) => {
     client.set('connection', connection);
     client.configure(users_shared_1.userClient);
     client.configure(messages_shared_1.messageClient);
+    client.configure(telegram_bot_shared_1.telegramBotClient);
     return client;
 };
 exports.createClient = createClient;

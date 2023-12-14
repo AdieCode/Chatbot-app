@@ -22,7 +22,7 @@
   "authentication": {
     "entity": "user",
     "service": "users",
-    "secret": "AZnY+BC2X+xr2ktlOumTuEZ9uVfygPQX",
+    "secret": "AZnY+BC2X+xr2ktlOumTuEZ9uVfygPSZ",
     "authStrategies": [
       "jwt",
       "local"
@@ -40,9 +40,10 @@
       "passwordField": "password"
     },
     "oauth": {
+      "redirect": "http://localhost:3000/",
       "github": {
-        "key": "<Client ID>",
-        "secret": "<Client secret>"
+        "key": "207d7a22cf8bdec6a0c1",
+        "secret": "472a89d0fd239c1280fd26b6dae9ef146cdce9f0"
       }
     }
   },

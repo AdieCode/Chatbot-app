@@ -24,6 +24,7 @@ app.use(errorHandler())
 app.use(parseAuthentication())
 app.use(bodyParser())
 
+
 // Configure services and transports
 app.configure(rest())
 app.configure(
@@ -54,3 +55,6 @@ app.hooks({
 })
 
 export { app }
+
+
+

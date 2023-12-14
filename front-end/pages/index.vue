@@ -24,22 +24,76 @@
             </div>
         </section>
 
-        <button to="/chat">Try it</button>
+        <button to="/chat" @click="goto">Try it</button>
 
-        
+        <footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <img class="logo" src="../images/chat-bot-high-resolution-logo-black-transparent.png" alt="Logo">
+      <p>{{ tagline }}</p>
+    </div>
+    <div class="footer-column">
+      <h2>Company</h2>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h2>Support</h2>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Community Forum</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h2>Follow Us</h2>
+      <ul class="social-media">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2023 Company Name. All rights reserved.</p>
+  </div>
+</footer>
+
     </div>
 </template>
 
 <script setup>
+const router = useRouter()
 const title1 = "Don’t go through a maze of Calls";
 const paragraph1 = "Opt for a chatbot over call mazes. Utilizing a chatbot streamlines communication, saves time, and reduces frustration. This efficient technology simplifies interactions for a smoother and more productive experience.";
 
 const title2 = "the Waiting Game";
 const paragraph2 = "Frustrated with the eternal wait for customer service? Chatbots are your solution. These virtual assistants offer immediate responses, removing the need to endure hold times. Whether it's resolving issues, making purchases, or seeking information, chatbots provide swift assistance. Say farewell to long waits and embrace the convenience of chatbots for a smoother customer service experience.";
+ 
+const goto = () =>{
+    router.push("/chat")
+}
 </script>
 
 
 <style lang="css" scoped>
+.main::-webkit-scrollbar {
+    width: 10px;
+}
+
+.main::-webkit-scrollbar-track {
+    background: #D9D9D9;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background: #AD61BA;
+}
 .main{
     color: #000;
     font-family: 'Inter Tight', sans-serif;
@@ -107,5 +161,75 @@ button{
     background-color: #AD61BA;
     transition: 0.3s;
 }
+
+footer {
+  background-color: #f1f1f1;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  margin: 10px;
+  text-align: left;
+}
+
+.footer-column h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 5px;
+}
+
+.footer-column a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #ad61ba;
+}
+
+.footer-column img{
+height: 48px;
+width: 48px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-media li {
+  margin: 0 5px;
+}
+
+.social-media a {
+  color: #000;
+}
+
+.social-media a:hover {
+  color: #ad61ba;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
 
 </style>

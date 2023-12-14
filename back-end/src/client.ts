@@ -4,6 +4,14 @@ import type { TransportConnection, Application } from '@feathersjs/feathers'
 import authenticationClient from '@feathersjs/authentication-client'
 import type { AuthenticationClientOptions } from '@feathersjs/authentication-client'
 
+import { telegramBotClient } from './services/telegram-bot/telegram-bot.shared'
+export type {
+  TelegramBot,
+  TelegramBotData,
+  TelegramBotQuery,
+  TelegramBotPatch
+} from './services/telegram-bot/telegram-bot.shared'
+
 import { messageClient } from './services/messages/messages.shared'
 export type { Message, MessageData, MessageQuery, MessagePatch } from './services/messages/messages.shared'
 
@@ -38,5 +46,6 @@ export const createClient = <Configuration = any,>(
 
   client.configure(userClient)
   client.configure(messageClient)
+  client.configure(telegramBotClient)
   return client
 }

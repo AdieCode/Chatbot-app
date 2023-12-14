@@ -1,5 +1,7 @@
 import type { TransportConnection, Application } from '@feathersjs/feathers';
 import type { AuthenticationClientOptions } from '@feathersjs/authentication-client';
+import './services/telegram-bot/telegram-bot.shared';
+export type { TelegramBot, TelegramBotData, TelegramBotQuery, TelegramBotPatch } from './services/telegram-bot/telegram-bot.shared';
 import './services/messages/messages.shared';
 export type { Message, MessageData, MessageQuery, MessagePatch } from './services/messages/messages.shared';
 import './services/users/users.shared';

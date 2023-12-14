@@ -17,6 +17,7 @@ import {
 import type { Application } from '../../declarations'
 import { UserService, getOptions } from './users.class'
 import { userPath, userMethods } from './users.shared'
+import { test2 } from '../../hooks/test-2'
 
 export * from './users.class'
 export * from './users.schema'

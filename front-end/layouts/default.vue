@@ -17,8 +17,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 const authStore = useAuthStore();
-
 const navigationText = computed(() => {
   return authStore.isAuthenticated ? 'Sign out' : 'Login';
 });
@@ -31,7 +31,6 @@ const checkState = () => {
 </script>
 
 <style scoped>
-
 nav{
     display: flex;
     justify-content: space-between;
@@ -57,6 +56,7 @@ li{
 
 .navlinks ul li NuxtLink{
     color: #000;
+    padding: 10px;
     text-decoration: none;
     font-size: 13px;
 
@@ -98,6 +98,13 @@ nav .chat-link:hover{
     color: #fff;
     background-color: #AD61BA;
     transition: 0.3s;
+}
+
+.indecation{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .router-link-exact-active{

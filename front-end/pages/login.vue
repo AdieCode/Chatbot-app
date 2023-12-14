@@ -12,11 +12,13 @@
                     <div>
                         <h3>Password</h3>
                         <div class="password">
-                            <input type="password" placeholder="Enter password here" v-model="password">
-                            <img src="../images/view.png" alt="">
+                            <input :type="passwordType" placeholder="Enter password here" v-model="password" >
+                            <img v-if="passwordhide" src="../images/view.png" alt="" @mousedown="passwordView">
+                            <img v-if="passwordshow" src="../images/hide.png" alt="" @mousedown="passwordView">
                         </div>
                     </div>
                 </div>
+                <p v-if="wrong === 'red'" id="incorrect">- The password or email is incorrect</p>
 
                 <div class="horizontal-line"></div>
 
@@ -36,9 +38,9 @@
                         <img src="../images/google.png" alt=" " class="icon">
                         <h4>Google</h4>
                     </div>
-                    <div class="login-github">
+                    <div class="login-github" @mousedown="LoginGithub">
                         <img src="../images/github.png" alt="" class="icon">
-                        <h4>Github</h4>
+                        <h4><nuxt-link to="http://localhost:3030/oauth/github">Github</nuxt-link></h4>
                     </div>
                 </div>
             </div>
@@ -50,15 +52,59 @@
 
 <script setup>
 const authStore = useAuthStore();
-let email = "";
-let password = "";
+const { api } = useFeathers();
+const router = useRouter()
+let email = ref("");
+let password = ref("");
+let passwordshow = ref(false)
+let passwordhide = ref(true)
+const wrong = ref("nothing")
+const passwordType = ref("password")
+const eyeImage = ref("../images/view.png")
 
 // Logging in
 const Login = async() => {
-    await authStore.authenticate({ strategy: "local", email: email, password: password });
-    console.log("is logged in : " + authStore.isAuthenticated)
+    try{
+
+        await authStore.authenticate({ strategy: "local", email: email.value, password: password.value });
+    }catch{
+
+        console.log("wrong")
+        wrong.value = "red"
+        email.value = "";
+        password.value = "";
+    }
+    
+    if (authStore.isAuthenticated) {
+        console.log("is logged in : " + authStore.isAuthenticated);
+        router.push("/");
+    }
 };
-authStore.reAuthenticate
+
+const passwordView = () => {
+    if (passwordhide.value === true){
+        passwordType.value = 'text'
+        passwordhide.value = false
+        passwordshow.value = true
+        
+    }else{
+        passwordType.value = 'password'
+        passwordhide.value = true
+        passwordshow.value = false
+    }
+    
+}
+
+
+// const LoginGithub = async() => {
+//     await authStore.authenticate({ strategy: "github" });
+//     authStore.loginRedirect({ strategy: "github" })
+//     if (authStore.isAuthenticated) {
+//         console.log("is logged in : " + authStore.isAuthenticated);
+//         router.push("/");
+//     }
+// };
+
 </script>
 
 
@@ -92,12 +138,9 @@ template{
     flex-shrink: 0;
     border-radius: 20px;
     background: #FFF;
-
     display: flex;
     justify-content: space-evenly;
 }
-
-
 .login-contents{
     border-radius: 20px;
     width: 580px;
@@ -125,6 +168,12 @@ template{
     height: 24px;
     width: 24px;
     cursor: pointer;
+}
+
+#incorrect{
+    color: #ff0000fa;
+    font-size: 14px;
+    font-weight: 500;   
 }
 .icon{
     height: 24px;
@@ -186,8 +235,13 @@ template{
     justify-content: center;
     flex-shrink: 0;
     align-items: center;
-   
 }
+
+.login-options a{
+    text-decoration: none;
+    color: #000;
+}
+
 
 .login-options button{
     font-size: 20px;
@@ -207,6 +261,7 @@ template{
     margin-bottom: 0px;
     padding-bottom: 0px;
     cursor: pointer;
+    
 }
 
 .login-options :hover h4{
@@ -234,6 +289,7 @@ template{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    cursor: pointer;
 }
 
 .other-login :hover{
@@ -253,8 +309,14 @@ template{
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.login-github a{
+    text-decoration: none;
+    color: #000;
 }
 
 
 
-</style>../store/auth
+</style>

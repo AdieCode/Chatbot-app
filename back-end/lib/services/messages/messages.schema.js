@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.messageQueryResolver = exports.messageQueryValidator = exports.messageQuerySchema = exports.messageQueryProperties = exports.messagePatchResolver = exports.messagePatchValidator = exports.messagePatchSchema = exports.messageDataResolver = exports.messageDataValidator = exports.messageDataSchema = exports.messageExternalResolver = exports.messageResolver = exports.messageValidator = exports.messageSchema = void 0;
-// // For more information about this file see https://dove.feathersjs.com/guides/cli/service.schemas.html
+// // For more information about this file see https://dove.feathersjs.com/guides/cli/service.sche  mas.html
 const schema_1 = require("@feathersjs/schema");
 const typebox_1 = require("@feathersjs/typebox");
 const validators_1 = require("../../validators");

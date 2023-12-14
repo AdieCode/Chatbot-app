@@ -18,6 +18,8 @@ import type { Application } from '../../declarations'
 import { MessageService, getOptions } from './messages.class'
 import { messagePath, messageMethods } from './messages.shared'
 import { logRuntime } from '../../hooks/log-runtime'
+import { logEmpty } from '../../hooks/log-empty'
+import type { HookContext } from '../../declarations'
 
 export * from './messages.class'
 export * from './messages.schema'
@@ -45,7 +47,11 @@ export const message = (app: Application) => {
       all: [schemaHooks.validateQuery(messageQueryValidator), schemaHooks.resolveQuery(messageQueryResolver)],
       find: [],
       get: [],
-      create: [schemaHooks.validateData(messageDataValidator), schemaHooks.resolveData(messageDataResolver)],
+      create: [      async (context: HookContext) => {
+        if (context.data.text === '') {
+          throw new Error('Message text can not be empty')
+        }
+      },schemaHooks.validateData(messageDataValidator), schemaHooks.resolveData(messageDataResolver)],
       patch: [schemaHooks.validateData(messagePatchValidator), schemaHooks.resolveData(messagePatchResolver)],
       remove: []
     },

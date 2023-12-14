@@ -47,7 +47,11 @@ const message = (app) => {
             all: [schema_1.hooks.validateQuery(messages_schema_1.messageQueryValidator), schema_1.hooks.resolveQuery(messages_schema_1.messageQueryResolver)],
             find: [],
             get: [],
-            create: [schema_1.hooks.validateData(messages_schema_1.messageDataValidator), schema_1.hooks.resolveData(messages_schema_1.messageDataResolver)],
+            create: [async (context) => {
+                    if (context.data.text === '') {
+                        throw new Error('Message text can not be empty');
+                    }
+                }, schema_1.hooks.validateData(messages_schema_1.messageDataValidator), schema_1.hooks.resolveData(messages_schema_1.messageDataResolver)],
             patch: [schema_1.hooks.validateData(messages_schema_1.messagePatchValidator), schema_1.hooks.resolveData(messages_schema_1.messagePatchResolver)],
             remove: []
         },

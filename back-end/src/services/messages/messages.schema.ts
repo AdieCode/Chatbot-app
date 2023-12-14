@@ -1,4 +1,4 @@
-// // For more information about this file see https://dove.feathersjs.com/guides/cli/service.schemas.html
+// // For more information about this file see https://dove.feathersjs.com/guides/cli/service.sche  mas.html
 import { resolve,virtual } from '@feathersjs/schema'
 import { Type, getValidator, querySyntax } from '@feathersjs/typebox'
 import type { Static } from '@feathersjs/typebox'
@@ -78,7 +78,6 @@ export const messageQueryResolver = resolve<MessageQuery, HookContext<MessageSer
     if (context.params.user && context.method !== 'find') {
       return context.params.user.id
     }
-
     return value
   }
 })

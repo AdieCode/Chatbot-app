@@ -26,8 +26,8 @@ export declare const messageResolver: import("@feathersjs/schema").Resolver<{
         id: number;
         email: string;
     };
-    createdAt: number;
     userId: number;
+    createdAt: number;
 }, HookContext<MessageService<import("./messages.class").MessageParams>>>;
 export declare const messageExternalResolver: import("@feathersjs/schema").Resolver<{
     id: number;
@@ -39,8 +39,8 @@ export declare const messageExternalResolver: import("@feathersjs/schema").Resol
         id: number;
         email: string;
     };
-    createdAt: number;
     userId: number;
+    createdAt: number;
 }, HookContext<MessageService<import("./messages.class").MessageParams>>>;
 export declare const messageDataSchema: import("@sinclair/typebox").TPick<import("@sinclair/typebox").TObject<{
     id: import("@sinclair/typebox").TNumber;
@@ -67,8 +67,8 @@ export declare const messageDataResolver: import("@feathersjs/schema").Resolver<
         id: number;
         email: string;
     };
-    createdAt: number;
     userId: number;
+    createdAt: number;
 }, HookContext<MessageService<import("./messages.class").MessageParams>>>;
 export declare const messagePatchSchema: import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TObject<{
     id: import("@sinclair/typebox").TNumber;
@@ -95,8 +95,8 @@ export declare const messagePatchResolver: import("@feathersjs/schema").Resolver
         id: number;
         email: string;
     };
-    createdAt: number;
     userId: number;
+    createdAt: number;
 }, HookContext<MessageService<import("./messages.class").MessageParams>>>;
 export declare const messageQueryProperties: import("@sinclair/typebox").TPick<import("@sinclair/typebox").TObject<{
     id: import("@sinclair/typebox").TNumber;
@@ -117,10 +117,10 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
     $sort: import("@sinclair/typebox").TObject<{
         id: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
         text: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
-        createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
         userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+        createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
     }>;
-    $select: import("@sinclair/typebox").TUnsafe<("id" | "text" | "createdAt" | "userId")[]>;
+    $select: import("@sinclair/typebox").TUnsafe<("id" | "text" | "userId" | "createdAt")[]>;
     $and: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
         id: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
             $gt: import("@sinclair/typebox").TNumber;
@@ -144,7 +144,7 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
         }>, import("@sinclair/typebox").TObject<{
             [key: string]: import("@sinclair/typebox").TSchema;
         } | undefined>]>>]>>;
-        createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+        userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
             $gt: import("@sinclair/typebox").TNumber;
             $gte: import("@sinclair/typebox").TNumber;
             $lt: import("@sinclair/typebox").TNumber;
@@ -155,7 +155,7 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
         }>, import("@sinclair/typebox").TObject<{
             [key: string]: import("@sinclair/typebox").TSchema;
         } | undefined>]>>]>>;
-        userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+        createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
             $gt: import("@sinclair/typebox").TNumber;
             $gte: import("@sinclair/typebox").TNumber;
             $lt: import("@sinclair/typebox").TNumber;
@@ -190,7 +190,7 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
             }>, import("@sinclair/typebox").TObject<{
                 [key: string]: import("@sinclair/typebox").TSchema;
             } | undefined>]>>]>>;
-            createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+            userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
                 $gt: import("@sinclair/typebox").TNumber;
                 $gte: import("@sinclair/typebox").TNumber;
                 $lt: import("@sinclair/typebox").TNumber;
@@ -201,7 +201,7 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
             }>, import("@sinclair/typebox").TObject<{
                 [key: string]: import("@sinclair/typebox").TSchema;
             } | undefined>]>>]>>;
-            userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+            createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
                 $gt: import("@sinclair/typebox").TNumber;
                 $gte: import("@sinclair/typebox").TNumber;
                 $lt: import("@sinclair/typebox").TNumber;
@@ -237,7 +237,7 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
         }>, import("@sinclair/typebox").TObject<{
             [key: string]: import("@sinclair/typebox").TSchema;
         } | undefined>]>>]>>;
-        createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+        userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
             $gt: import("@sinclair/typebox").TNumber;
             $gte: import("@sinclair/typebox").TNumber;
             $lt: import("@sinclair/typebox").TNumber;
@@ -248,7 +248,7 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
         }>, import("@sinclair/typebox").TObject<{
             [key: string]: import("@sinclair/typebox").TSchema;
         } | undefined>]>>]>>;
-        userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+        createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
             $gt: import("@sinclair/typebox").TNumber;
             $gte: import("@sinclair/typebox").TNumber;
             $lt: import("@sinclair/typebox").TNumber;
@@ -283,7 +283,7 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
     }>, import("@sinclair/typebox").TObject<{
         [key: string]: import("@sinclair/typebox").TSchema;
     } | undefined>]>>]>>;
-    createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+    userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
         $gt: import("@sinclair/typebox").TNumber;
         $gte: import("@sinclair/typebox").TNumber;
         $lt: import("@sinclair/typebox").TNumber;
@@ -294,7 +294,7 @@ export declare const messageQuerySchema: import("@sinclair/typebox").TIntersect<
     }>, import("@sinclair/typebox").TObject<{
         [key: string]: import("@sinclair/typebox").TSchema;
     } | undefined>]>>]>>;
-    userId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+    createdAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TNumber, import("@sinclair/typebox").TPartial<import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
         $gt: import("@sinclair/typebox").TNumber;
         $gte: import("@sinclair/typebox").TNumber;
         $lt: import("@sinclair/typebox").TNumber;
@@ -314,10 +314,10 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
     $sort: {
         id?: number | undefined;
         text?: number | undefined;
-        createdAt?: number | undefined;
         userId?: number | undefined;
+        createdAt?: number | undefined;
     };
-    $select: ("id" | "text" | "createdAt" | "userId")[];
+    $select: ("id" | "text" | "userId" | "createdAt")[];
     $and: ({
         id?: number | Partial<{
             $gt: number;
@@ -337,7 +337,7 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
             $in: string[];
             $nin: string[];
         } & {}> | undefined;
-        createdAt?: number | Partial<{
+        userId?: number | Partial<{
             $gt: number;
             $gte: number;
             $lt: number;
@@ -346,7 +346,7 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
             $in: number[];
             $nin: number[];
         } & {}> | undefined;
-        userId?: number | Partial<{
+        createdAt?: number | Partial<{
             $gt: number;
             $gte: number;
             $lt: number;
@@ -375,7 +375,7 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
                 $in: string[];
                 $nin: string[];
             } & {}> | undefined;
-            createdAt?: number | Partial<{
+            userId?: number | Partial<{
                 $gt: number;
                 $gte: number;
                 $lt: number;
@@ -384,7 +384,7 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
                 $in: number[];
                 $nin: number[];
             } & {}> | undefined;
-            userId?: number | Partial<{
+            createdAt?: number | Partial<{
                 $gt: number;
                 $gte: number;
                 $lt: number;
@@ -414,7 +414,7 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
             $in: string[];
             $nin: string[];
         } & {}> | undefined;
-        createdAt?: number | Partial<{
+        userId?: number | Partial<{
             $gt: number;
             $gte: number;
             $lt: number;
@@ -423,7 +423,7 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
             $in: number[];
             $nin: number[];
         } & {}> | undefined;
-        userId?: number | Partial<{
+        createdAt?: number | Partial<{
             $gt: number;
             $gte: number;
             $lt: number;
@@ -452,7 +452,7 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
         $in: string[];
         $nin: string[];
     } & {}> | undefined;
-    createdAt?: number | Partial<{
+    userId?: number | Partial<{
         $gt: number;
         $gte: number;
         $lt: number;
@@ -461,7 +461,7 @@ export declare const messageQueryResolver: import("@feathersjs/schema").Resolver
         $in: number[];
         $nin: number[];
     } & {}> | undefined;
-    userId?: number | Partial<{
+    createdAt?: number | Partial<{
         $gt: number;
         $gte: number;
         $lt: number;
