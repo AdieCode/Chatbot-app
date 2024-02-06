@@ -2,13 +2,21 @@ import { Telegraf } from 'telegraf';
 import { message } from 'telegraf/filters'
 import {myBot} from '../message-bot/message-bot'
 
+import dotenv from 'dotenv';
+dotenv.config();
+const apiKey = process.env.API_KEY;
+if (!apiKey) {
+  throw new Error('API key not found in environment variables');
+}
+
 let user_progress = {
   command: "",
   userInput: [""]
 }
 
+
 export function startTelegramBot() {
-  const bot = new Telegraf("6906803387:AAH5gBHzb_NRwXIFgVqX9EiLUy1z_9rhKoQ");
+  const bot = new Telegraf(apiKey);
 
   // Handle incoming messages
   bot.on(message('text'), async (ctx) => {
